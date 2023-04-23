@@ -45,12 +45,23 @@ const shakeBtn = document.querySelector(".shake-btn");
 const eightBall = document.querySelector(".eight-ball");
 
 /**
+ * Defining the shaking sounds
+ */
+const sounds = ["audio/Shaking 1.wav", "audio/Shaking 2.wav", "audio/Shaking 3.wav", 
+  "audio/Shaking 4.wav", "audio/Shaking 5.wav", "audio/Shaking 6.wav", "audio/Shaking 7.wav"]
+
+/**
  * Shakes the Magic 8 Ball and displays a random answer after a brief delay.
  */
 function shake() {
   if (questionInput.value !== "") {
     // Add the "shaking" class to the Magic 8 Ball to initiate the shaking animation.
     eightBall.classList.add("shaking");
+    
+    // Play a random shaking sound
+    const randomSoundIndex = Math.floor(Math.random() * sounds.length);
+    const sound = new Audio(sounds[randomSoundIndex]);
+    sound.play();
 
     // Keep track of how many times the answer has been updated.
     let count = 0;
