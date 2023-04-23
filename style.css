@@ -9,7 +9,8 @@
 }
 
 .answer {
-  font-size: 30px;
+  font-size: 100px;
+  font-weight: bold;
   color: black;
   text-align: center;
   position: absolute;
@@ -23,7 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
+  opacity: 100;
   transition: opacity 0.5s ease;
 }
 
@@ -52,4 +53,32 @@
   font-weight: bold;
   cursor: pointer;
   border: none;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(10deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+  60% {
+    transform: rotate(-8deg);
+  }
+  80% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.eight-ball.shaking {
+  animation: shake 0.5s ease-in-out infinite;
 }
