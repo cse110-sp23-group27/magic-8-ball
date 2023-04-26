@@ -118,3 +118,51 @@ shakeBtn.addEventListener("click", shake);
 
 // Call the handleKeyPress function when a key is pressed on the question input field.
 questionInput.addEventListener("keypress", handleKeyPress);
+
+// ========== Unit test ===============
+
+// Takes some function test and runs it to see if it results in error
+function runUnitTest(test, expectedValue){
+  try{
+    let o = test();
+    if(expectedValue !== null){
+      if(expectedValue !== o){
+        throw "Output does not match expected"
+      }
+    }
+  }
+  catch(e){
+    console.error("Test Failed: " + e);
+  }
+}
+
+function runUnitTestValueCheck(testedItem, expectedValue){
+  try{
+    if(testedItem !== expectedValue){
+      throw "Item value does not match expected"
+    }
+  }
+  catch(e){
+    console.error("Test Failed: " + e);
+  }
+}
+
+function runUnitTestNullCheck(testedItem){
+  try{
+    if(testedItem === null){
+      throw "Item value is null"
+    }
+  }
+  catch(e){
+    console.error("Test Failed: " + e);
+  }
+}
+
+function tests(){
+  runUnitTestNullCheck(answerEl);
+  runUnitTestNullCheck(questionInput);
+  runUnitTestNullCheck(shakeBtn);
+  runUnitTestNullCheck(eightBall);
+  runUnitTest(()=>sounds.length > 0, true);
+  console.log("Passed all tests!");
+}
