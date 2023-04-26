@@ -166,3 +166,5 @@ function tests(){
   runUnitTest(()=>sounds.length > 0, true);
   console.log("Passed all tests!");
 }
+
+tests();
